@@ -4,17 +4,7 @@ import { AbstractConnector } from '@web3-react/abstract-connector'
 import { fortmatic, injected, portis, walletconnect, walletlink } from '../connectors'
 
 export const ROUTER_ADDRESS = '0xbb2674a076e4644e94E702489fA75c301c327610'
-/*
-export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
-  [ChainId.MAINNET]: '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D',
-  [ChainId.EXPANSE]: '0xbb2674a076e4644e94E702489fA75c301c327610'
-  [ChainId.ROPSTEN]: '0x9c83dCE8CA20E9aAF9D3efc003b2ea62aBC08351',
-  [ChainId.RINKEBY]: '0xf5D915570BC477f9B8D6C0E980aA81757A3AaC36',
-  [ChainId.GÖRLI]: '0x6Ce570d02D73d4c384b46135E87f8C592A8c86dA',
-  [ChainId.KOVAN]: '0xD3E51Ef092B2845f10401a0159B2B96e8B6c3D30',
-  [ChainId.LOCAL]: '0xbb2674a076e4644e94E702489fA75c301c327610'
-}
-*/
+
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
 // a list of tokens by chain
@@ -30,26 +20,16 @@ export const MKR = new Token(ChainId.MAINNET, '0x9f8F72aA9304c8B593d555F12eF6589
 export const AMPL = new Token(ChainId.MAINNET, '0xD46bA6D942050d489DBd938a2C909A5d5039A161', 9, 'AMPL', 'Ampleforth')
 export const WBTC = new Token(ChainId.MAINNET, '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599', 18, 'WBTC', 'Wrapped BTC')
 
-export const LVE = new Token(1337, '0xc55C98464383Ae7f34D6277D43d7aeD93916c584', 18, 'LVE', 'Love')
-export const T64 = new Token(1337, '0x0FE7B21A63bDd0294268AAB170395A2599048fC5', 18, 'T64', 'Test ERC644')
+export const LVE = new Token(ChainId.LOCAL, '0xF944ded847cB9CD7e94B1cdd47794ad541b4BD27', 18, 'LVE', 'Love')
+export const T64 = new Token(ChainId.LOCAL, '0x0FE7B21A63bDd0294268AAB170395A2599048fC5', 18, 'T64', 'Test ERC644')
 
 // TODO this is only approximate, it's actually based on blocks
 export const PROPOSAL_LENGTH_IN_DAYS = 7
 
 export const GOVERNANCE_ADDRESS = '0x5e4be8Bc9637f0EAA1A755019e06A68ce081D58F'
 
-const UNI_ADDRESS = '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984'
-/*
-export const UNI_ADDRESS: { [chainId in ChainId]: string } = {
-  [ChainId.MAINNET]: '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984',
-  [ChainId.EXPANSE]: '0xbb2674a076e4644e94E702489fA75c301c327610'
-  [ChainId.ROPSTEN]: '0x9c83dCE8CA20E9aAF9D3efc003b2ea62aBC08351',
-  [ChainId.RINKEBY]: '0xf5D915570BC477f9B8D6C0E980aA81757A3AaC36',
-  [ChainId.GÖRLI]: '0x6Ce570d02D73d4c384b46135E87f8C592A8c86dA',
-  [ChainId.KOVAN]: '0xD3E51Ef092B2845f10401a0159B2B96e8B6c3D30',
-  [ChainId.LOCAL]: '0xBCD7CB6324Fc17dbe6e2c11511c03168e6B47bF6'
-}
-*/
+const UNI_ADDRESS = '0xBCD7CB6324Fc17dbe6e2c11511c03168e6B47bF6'
+
 export const UNI: { [chainId in ChainId]: Token } = {
   [ChainId.MAINNET]: new Token(ChainId.MAINNET, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.EXPANSE]: new Token(ChainId.EXPANSE, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
@@ -78,7 +58,8 @@ const WETH_ONLY: ChainTokenList = {
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, COMP, MKR]
+  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, COMP, MKR],
+  [ChainId.LOCAL]: [...WETH_ONLY[ChainId.LOCAL], LVE, T64]
 }
 
 /**
@@ -94,13 +75,15 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT]
+  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT],
+  [ChainId.LOCAL]: [...WETH_ONLY[ChainId.LOCAL], LVE, T64]
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT]
+  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT],
+  [ChainId.LOCAL]: [...WETH_ONLY[ChainId.LOCAL], LVE, T64]
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
@@ -111,6 +94,9 @@ export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } 
     ],
     [USDC, USDT],
     [DAI, USDT]
+  ],
+  [ChainId.LOCAL]: [
+    [LVE, T64]
   ]
 }
 
