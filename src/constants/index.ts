@@ -3,7 +3,8 @@ import { AbstractConnector } from '@web3-react/abstract-connector'
 
 import { fortmatic, injected, portis, walletconnect, walletlink } from '../connectors'
 
-export const ROUTER_ADDRESS = '0xbb2674a076e4644e94E702489fA75c301c327610'
+//export const ROUTER_ADDRESS = '0xbb2674a076e4644e94E702489fA75c301c327610' // LOCAL
+export const ROUTER_ADDRESS = '0xFaF3dDcB8d17dB02e08e45F02aFb8D427669d592'
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
@@ -23,16 +24,23 @@ export const WBTC = new Token(ChainId.MAINNET, '0x2260FAC5E5542a773Aa44fBCfeDf7C
 export const LVE = new Token(ChainId.LOCAL, '0xF944ded847cB9CD7e94B1cdd47794ad541b4BD27', 18, 'LVE', 'Love')
 export const T64 = new Token(ChainId.LOCAL, '0x0FE7B21A63bDd0294268AAB170395A2599048fC5', 18, 'T64', 'Test ERC644')
 
+export const LVE2 = new Token(ChainId.EXPANSE, '0x9D2761A714b5b2EfA325a8a3eee21BE32AACeB4A', 18, 'LVE', 'Love')
+export const T642 = new Token(ChainId.EXPANSE, '0x72332c512bf2dA5A7Cd11752b380F7d8fcBba847', 18, 'T64', 'Test ERC644')
+export const LAB = new Token(ChainId.EXPANSE, '0x3b4cfcc4532eec161860cb6544f49947544d940d', 18, 'LAB', 'Tokenlab')
+export const PEX = new Token(ChainId.EXPANSE, '0x4f5ec5a69dbe12c48ca1edc9c52b1e8896aed932', 18, 'PEX', 'Expex')
+
 // TODO this is only approximate, it's actually based on blocks
 export const PROPOSAL_LENGTH_IN_DAYS = 7
 
 export const GOVERNANCE_ADDRESS = '0x5e4be8Bc9637f0EAA1A755019e06A68ce081D58F'
 
-const UNI_ADDRESS = '0xBCD7CB6324Fc17dbe6e2c11511c03168e6B47bF6'
+const UNI_ADDRESS = '0xBCD7CB6324Fc17dbe6e2c11511c03168e6B47bF6' // DEV
+const EGG_ADDRESS = '0x5AB20632Bad41463680975D3AaC3320F820F1fA1' // MAINNET
+
 
 export const UNI: { [chainId in ChainId]: Token } = {
   [ChainId.MAINNET]: new Token(ChainId.MAINNET, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
-  [ChainId.EXPANSE]: new Token(ChainId.EXPANSE, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
+  [ChainId.EXPANSE]: new Token(ChainId.EXPANSE, EGG_ADDRESS, 18, 'EGG', 'Eggswap'),
   [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
@@ -59,7 +67,8 @@ const WETH_ONLY: ChainTokenList = {
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
   [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, COMP, MKR],
-  [ChainId.LOCAL]: [...WETH_ONLY[ChainId.LOCAL], LVE, T64]
+  [ChainId.LOCAL]: [...WETH_ONLY[ChainId.LOCAL], LVE, T64],
+  [ChainId.EXPANSE]: [...WETH_ONLY[ChainId.EXPANSE], LAB, PEX]
 }
 
 /**
@@ -76,14 +85,16 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
 export const SUGGESTED_BASES: ChainTokenList = {
   ...WETH_ONLY,
   [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT],
-  [ChainId.LOCAL]: [...WETH_ONLY[ChainId.LOCAL], LVE, T64]
+  [ChainId.LOCAL]: [...WETH_ONLY[ChainId.LOCAL], LVE, T64],
+  [ChainId.EXPANSE]: [...WETH_ONLY[ChainId.EXPANSE], LAB, PEX, LVE2, T642]
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WETH_ONLY,
   [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT],
-  [ChainId.LOCAL]: [...WETH_ONLY[ChainId.LOCAL], LVE, T64]
+  [ChainId.LOCAL]: [...WETH_ONLY[ChainId.LOCAL], LVE, T64],
+  [ChainId.EXPANSE]: [...WETH_ONLY[ChainId.EXPANSE], LAB, PEX, LVE2, T642]
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
@@ -97,6 +108,10 @@ export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } 
   ],
   [ChainId.LOCAL]: [
     [LVE, T64]
+  ],
+  [ChainId.EXPANSE]: [
+    [LAB, PEX],
+    [LVE2, T642]
   ]
 }
 
@@ -181,7 +196,7 @@ export const NetworkContextName = 'NETWORK'
 // default allowed slippage, in bips
 export const INITIAL_ALLOWED_SLIPPAGE = 50
 // 20 minutes, denominated in seconds
-export const DEFAULT_DEADLINE_FROM_NOW = 60 * 20
+export const DEFAULT_DEADLINE_FROM_NOW = 60 * 60
 
 export const BIG_INT_ZERO = JSBI.BigInt(0)
 

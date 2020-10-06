@@ -1200,10 +1200,10 @@
     truffle "^5.1.41"
     truffle-flattener "^1.4.4"
 
-"@eggswap/sdk@^3.0.6":
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/@eggswap/sdk/-/sdk-3.0.6.tgz#c909fa2b5ae478dd3606b371197a5c36fdcee3ab"
-  integrity sha512-WiZnmgf+rox3ysyk4iXpNlpqIdedZaemxbr654jHvArefp73fCVcTSYA+mlMJ9Ai6UkHlSvZNJHUwBi/lLKvPg==
+"@eggswap/sdk@^3.0.8":
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/@eggswap/sdk/-/sdk-3.0.8.tgz#9ce25efd9bc8b1a3b9543c1ece03541299ec2f87"
+  integrity sha512-xgIld+ztOktUE8i0s69rxogNfL5fxP9/DXka5G2RUDWrUMIJPYcSyVNLzvVaekiMrq15qjz4LirRN9yvt0ka8Q==
   dependencies:
     "@eggswap/core" "^1.0.2"
     big.js "^5.2.2"
