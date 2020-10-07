@@ -28,6 +28,7 @@ export const LVE2 = new Token(ChainId.EXPANSE, '0x9D2761A714b5b2EfA325a8a3eee21B
 export const T642 = new Token(ChainId.EXPANSE, '0x72332c512bf2dA5A7Cd11752b380F7d8fcBba847', 18, 'T64', 'Test ERC644')
 export const LAB = new Token(ChainId.EXPANSE, '0x3b4cfcc4532eec161860cb6544f49947544d940d', 18, 'LAB', 'Tokenlab')
 export const PEX = new Token(ChainId.EXPANSE, '0x4f5ec5a69dbe12c48ca1edc9c52b1e8896aed932', 18, 'PEX', 'Expex')
+export const WEXP = new Token(ChainId.EXPANSE, '0x331631B4bb93b9B8962faE15860BD538a389395A', 18, 'WEXP', 'Wrapped Expanse')
 
 // TODO this is only approximate, it's actually based on blocks
 export const PROPOSAL_LENGTH_IN_DAYS = 7
@@ -111,7 +112,11 @@ export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } 
   ],
   [ChainId.EXPANSE]: [
     [LAB, PEX],
-    [LVE2, T642]
+    [LVE2, T642],
+    [WEXP, LAB],
+    [WEXP, PEX],
+    [WEXP, LVE2],
+    [WEXP, T642]
   ]
 }
 
