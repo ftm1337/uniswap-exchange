@@ -29,6 +29,7 @@ export const T642 = new Token(ChainId.EXPANSE, '0x72332c512bf2dA5A7Cd11752b380F7
 export const LAB = new Token(ChainId.EXPANSE, '0x3b4cfcc4532eec161860cb6544f49947544d940d', 18, 'LAB', 'Tokenlab')
 export const PEX = new Token(ChainId.EXPANSE, '0x4f5ec5a69dbe12c48ca1edc9c52b1e8896aed932', 18, 'PEX', 'Expex')
 export const WEXP = new Token(ChainId.EXPANSE, '0x331631B4bb93b9B8962faE15860BD538a389395A', 18, 'WEXP', 'Wrapped Expanse')
+export const EGG = new Token(ChainId.EXPANSE, '0x5AB20632Bad41463680975D3AaC3320F820F1fA1', 18, 'EGG', 'Eggswap')
 
 // TODO this is only approximate, it's actually based on blocks
 export const PROPOSAL_LENGTH_IN_DAYS = 7
@@ -217,6 +218,6 @@ export const PRICE_IMPACT_WITHOUT_FEE_CONFIRM_MIN: Percent = new Percent(JSBI.Bi
 // for non expert mode disable swaps above this
 export const BLOCKED_PRICE_IMPACT_NON_EXPERT: Percent = new Percent(JSBI.BigInt(1500), BIPS_BASE) // 15%
 
-// used to ensure the user doesn't send so much ETH so they end up with <.01
-export const MIN_ETH: JSBI = JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(16)) // .01 ETH
+// used to ensure the user doesn't send so much EXP so they end up with <.01
+export const MIN_ETH: JSBI = JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(16)) // .01 EXP
 export const BETTER_TRADE_LINK_THRESHOLD = new Percent(JSBI.BigInt(75), JSBI.BigInt(10000))

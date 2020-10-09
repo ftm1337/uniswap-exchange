@@ -1,6 +1,6 @@
 import { ChainId, CurrencyAmount, JSBI, Token, TokenAmount, WETH, Pair } from '@eggswap/sdk'
 import { useMemo } from 'react'
-import { DAI, UNI, USDC, USDT, WBTC } from '../../constants'
+import { DAI, UNI, USDC, USDT, WBTC, /*LAB, PEX, EGG*/ } from '../../constants'
 import { STAKING_REWARDS_INTERFACE } from '../../constants/abis/staking-rewards'
 import { useActiveWeb3React } from '../../hooks'
 import { NEVER_RELOAD, useMultipleContractSingleData } from '../multicall/hooks'
@@ -34,7 +34,23 @@ export const STAKING_REWARDS_INFO: {
       tokens: [WETH[ChainId.MAINNET], WBTC],
       stakingRewardAddress: '0xCA35e32e7926b96A9988f61d510E038108d8068e'
     }
+  ],
+  /*
+  [ChainId.EXPANSE]: [
+    {
+      tokens: [WETH[ChainId.EXPANSE], LAB],
+      stakingRewardAddress: '0x9f17C654Ca15d2bE76CfDF6cb806A4b8e4678EeD'
+    },
+    {
+      tokens: [WETH[ChainId.EXPANSE], PEX],
+      stakingRewardAddress: '0x7FBa4B8Dc5E7616e59622806932DBea72537A56b'
+    },
+    {
+      tokens: [WETH[ChainId.EXPANSE], EGG],
+      stakingRewardAddress: '0xA56cD5eCa1066be998d2f09DB7A1903E0E47d05d'
+    }
   ]
+  */
 }
 
 export interface StakingInfo {

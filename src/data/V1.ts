@@ -4,7 +4,7 @@ import {
   Currency,
   CurrencyAmount,
   currencyEquals,
-  ETHER,
+  EXPANSE,
   JSBI,
   Pair,
   Percent,
@@ -108,17 +108,17 @@ export function useV1Trade(
   const inputPair = useMockV1Pair(inputCurrency)
   const outputPair = useMockV1Pair(outputCurrency)
 
-  const inputIsETH = inputCurrency === ETHER
-  const outputIsETH = outputCurrency === ETHER
+  const inputIsETH = inputCurrency === EXPANSE
+  const outputIsETH = outputCurrency === EXPANSE
 
-  // construct a direct or through ETH v1 route
+  // construct a direct or through EXP v1 route
   let pairs: Pair[] = []
   if (inputIsETH && outputPair) {
     pairs = [outputPair]
   } else if (outputIsETH && inputPair) {
     pairs = [inputPair]
   }
-  // if neither are ETH, it's token-to-token (if they both exist)
+  // if neither are EXP, it's token-to-token (if they both exist)
   else if (inputPair && outputPair) {
     pairs = [inputPair, outputPair]
   }
