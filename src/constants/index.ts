@@ -1,7 +1,7 @@
 import { ChainId, JSBI, Percent, Token, WETH } from '@eggswap/sdk'
 import { AbstractConnector } from '@web3-react/abstract-connector'
 
-import { fortmatic, injected, portis, walletconnect, walletlink } from '../connectors'
+import { /*fortmatic,*/ injected/*, portis, walletconnect, walletlink*/ } from '../connectors'
 
 //export const ROUTER_ADDRESS = '0xbb2674a076e4644e94E702489fA75c301c327610' // LOCAL
 export const ROUTER_ADDRESS = '0xFaF3dDcB8d17dB02e08e45F02aFb8D427669d592'
@@ -29,7 +29,7 @@ export const T642 = new Token(ChainId.EXPANSE, '0x72332c512bf2dA5A7Cd11752b380F7
 export const LAB = new Token(ChainId.EXPANSE, '0x3b4cfcc4532eec161860cb6544f49947544d940d', 18, 'LAB', 'Tokenlab')
 export const PEX = new Token(ChainId.EXPANSE, '0x4f5ec5a69dbe12c48ca1edc9c52b1e8896aed932', 18, 'PEX', 'Expex')
 export const WEXP = new Token(ChainId.EXPANSE, '0x331631B4bb93b9B8962faE15860BD538a389395A', 18, 'WEXP', 'Wrapped Expanse')
-export const EGG = new Token(ChainId.EXPANSE, '0x05E58e93b35203fdF710cB176E015be3122612eC', 18, 'EGG', 'Eggswap')
+export const EGG = new Token(ChainId.EXPANSE, '0xd1365a5Af713cde10C6ac3fB9EDBB2bBbd4B2Ba2', 18, 'EGG', 'Eggswap')
 
 // TODO this is only approximate, it's actually based on blocks
 export const PROPOSAL_LENGTH_IN_DAYS = 7
@@ -37,7 +37,7 @@ export const PROPOSAL_LENGTH_IN_DAYS = 7
 export const GOVERNANCE_ADDRESS = '0x5e4be8Bc9637f0EAA1A755019e06A68ce081D58F'
 
 const UNI_ADDRESS = '0xBCD7CB6324Fc17dbe6e2c11511c03168e6B47bF6' // DEV
-const EGG_ADDRESS = '0x05E58e93b35203fdF710cB176E015be3122612eC' // MAINNET
+const EGG_ADDRESS = '0xd1365a5Af713cde10C6ac3fB9EDBB2bBbd4B2Ba2' // MAINNET
 
 
 export const UNI: { [chainId in ChainId]: Token } = {
@@ -151,7 +151,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     href: null,
     color: '#E8831D'
   },
-
+  /*
   WALLET_CONNECT: {
     connector: walletconnect,
     name: 'WalletConnect',
@@ -196,6 +196,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     color: '#4A6C9B',
     mobile: true
   }
+  */
 }
 
 export const NetworkContextName = 'NETWORK'
