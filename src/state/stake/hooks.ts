@@ -18,6 +18,10 @@ export const STAKING_REWARDS_INFO: {
   }[]
 } = {
   [ChainId.MAINNET]: [
+
+  /*
+  //62621
+
     {
       tokens: [WETH[ChainId.MAINNET], DAI],
       stakingRewardAddress: '0xa1484C3aa22a66C62b77E0AE78E15258bd0cB711'
@@ -34,6 +38,9 @@ export const STAKING_REWARDS_INFO: {
       tokens: [WETH[ChainId.MAINNET], WBTC],
       stakingRewardAddress: '0xCA35e32e7926b96A9988f61d510E038108d8068e'
     }
+
+  */
+
   ]
 }
 
