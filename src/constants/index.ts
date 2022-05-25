@@ -30,13 +30,12 @@ export const USDC = new Token(ChainId.MULTIVAC, '0xEa1199d50Ee09fA8062fd9dA3D55C
 export const HTZ = new Token(ChainId.MULTIVAC, '0xFC0c8D38166fc417F19De5B44CfC339079a70913', 18, 'HTZ', 'Hertz')
 
 
-/*
-Done above
+
 // TODO this is only approximate, its actually based on blocks
 export const PROPOSAL_LENGTH_IN_DAYS = 7
 
 export const GOVERNANCE_ADDRESS = '0x5e4be8Bc9637f0EAA1A755019e06A68ce081D58F'
-
+//62621,	HTZ is 0xFC0c8D38166fc417F19De5B44CfC339079a70913
 const UNI_ADDRESS = '0xFC0c8D38166fc417F19De5B44CfC339079a70913'
 export const UNI: { [chainId in ChainId]: Token } = {
   //[ChainId.MAINNET]: new Token(ChainId.MAINNET, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
@@ -47,7 +46,7 @@ export const UNI: { [chainId in ChainId]: Token } = {
   //62621
   [ChainId.MULTIVAC]: new Token(ChainId.MULTIVAC, UNI_ADDRESS, 18, 'HTZ', 'Hertz'),
 }
-*/
+
 
 // TODO: specify merkle distributor for mainnet
 export const MERKLE_DISTRIBUTOR_ADDRESS: { [chainId in ChainId]?: string } = {
